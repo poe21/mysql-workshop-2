@@ -1,0 +1,38 @@
+Exercise 14 (Workshop Challenge)
+* Create a data model representing a Store with Inventory, Customers and Invoices
+* This model should provide answers to the following questions:
+    * What is the Store's income within a specific date range?
+    * What is the Store's top selling Inventory product?
+    * Which company produces the top selling Inventory product?
+    * What is the top refunded Inventory product?
+    * Which products should be taken out from the Store's Inventory?
+    * Which companies should the Store stop selling products from?
+    * What is the amount of Internal (Canadian) vs. External sales?
+    * How many of a specific product remains in Inventory for a specific date?
+    
+mysql> CREATE DATABASE store;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> USE store;
+Database changed
+
+mysql> CREATE TABLE Customers (id INT auto_increment primary key, firstName VARCHAR(255), lastName VARCHAR(255));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> CREATE TABLE Invoices (id INT auto_increment primary key, transaction INT, inventoryId INT, createdOn DATETIME, export BOOL, customerId INT);                                                                                          
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> CREATE TABLE Inventory (id INT auto_increment primary key, productName VARCHAR(255), companyName VARCHAR(255), amountInStock INT, createdOn DATETIME, modifiedOn DATETIME);
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> ALTER TABLE Invoices ADD COLUMN (FOREIGN KEY (inventoryId) REFERENCES Inventory(id));             
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE Invoices ADD COLUMN (FOREIGN KEY (customerId) REFERENCES Customers(id));                    
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO Inventory (productName, companyName, amountInStock, createdOn) VALUES ("Cat petting stick", "The Cat Petters Co.", 63, "2016-03-28");
+Query OK, 1 row affected (0.01 sec)
+
