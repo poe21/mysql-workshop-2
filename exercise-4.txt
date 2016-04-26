@@ -1,0 +1,23 @@
+Exercise 4
+* Modify the decodemtl_addressbook.Account row
+* Modify the decodemtl_addressbook.AddressBook row
+* Modify the three decodemtl_addressbook.Entry rows using one query only
+
+mysql> UPDATE Account SET ModifiedOn="2016-04-26 14:37:25";                                            
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE AddressBook SET AccountId=2;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE Entry
+    -> SET addressBookId=
+    -> CASE
+    -> WHEN id=1 THEN 1
+    -> WHEN id=2 THEN 2                                                                                
+    -> WHEN id=3 THEN 3                                                                                
+    -> END
+    -> WHERE id IN (1,2,3);
+Query OK, 3 rows affected (0.01 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
