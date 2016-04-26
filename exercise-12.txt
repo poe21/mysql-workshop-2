@@ -1,0 +1,23 @@
+Exercise 12
+* Which Account owns the most Address Books?
+* Which Address Book contains the most Entries?
+
+mysql> SELECT accountId,
+    -> COUNT(*) AS numOfBooksPerAccount FROM AddressBook
+    -> GROUP BY accountId
+    -> ORDER BY numOfBooksPerAccount DESC
+    -> LIMIT 1;
++-----------+----------------------+
+| accountId | numOfBooksPerAccount |
++-----------+----------------------+
+|        14 |                   19 |
++-----------+----------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT addressBookId, COUNT(*) AS numOfEntries FROM Entry GROUP BY addressBookId ORDER BY numOfEntries DESC LIMIT 1;
++---------------+--------------+
+| addressBookId | numOfEntries |
++---------------+--------------+
+|            37 |           52 |
++---------------+--------------+
+1 row in set (0.00 sec)
