@@ -1,0 +1,28 @@
+Exercise 11
+* How many Address Book Entries are not listed as other?
+* How many Address Book Entries are listed as either home or work?
+* How many Address Book Entries are listed as phones?
+
+mysql> SELECT COUNT(*) AS notOther FROM Entry WHERE type != "other";
++----------+
+| notOther |
++----------+
+|     2800 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> SELECT COUNT(*) AS homeAndWork FROM Entry WHERE type="home" OR type="work";                            
++-------------+
+| homeAndWork |
++-------------+
+|        2800 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT COUNT(*) AS numPhones FROM Entry WHERE subtype="phone";
++-----------+
+| numPhones |
++-----------+
+|       600 |
++-----------+
+1 row in set (0.00 sec)
