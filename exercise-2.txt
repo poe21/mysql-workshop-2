@@ -1,0 +1,18 @@
+Exercise 2
+* Insert one row into decodemtl_addressbook.Account
+* Insert one row into decodemtl_addressbook.AddressBook
+* Insert three rows into decodemtl_addressbook.Entry
+
+mysql> INSERT INTO Account (email, password, createdOn, modifiedOn)
+    -> VALUES ("mrcat@catmail.com", "cAt_pas5", "2016-04-21 13:34:23", "2016-04-25 19:54:03");  
+Query OK, 1 row affected (0.01 sec)  
+
+mysql> INSERT INTO AddressBook (name) VALUES ("Catie");
+Query OK, 1 row affected, 2 warnings (0.00 sec)
+
+mysql> INSERT INTO Entry (firstName, lastName, birthday, type, subtype, contentLineOne)
+    -> VALUES ("Catie", "TheCat", "1986-09-16", "home", "phone", "555-555-CATS"),
+    -> ("Apo", "TheCat", "2010-08-07", "other", "email", "apothecat@catmail.cat"),
+    -> ("Pixie", "S.", "2006-05-21", "work", "email", "pixies@catworks.co");
+Query OK, 3 rows affected, 1 warning (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 1
