@@ -1,0 +1,30 @@
+Exercise 3
+* Retrieve data from the previously inserted decodemtl_addressbook.Account row
+* Retrieve data from the previously inserted decodemtl_addressbook.AddressBook row
+* Retrieve data from the previously inserted decodemtl_addressbook.Entry rows
+
+mysql> SELECT * FROM Account;
++----+-------------------+----------+---------------------+---------------------+
+| id | email             | password | createdOn           | modifiedOn          |
++----+-------------------+----------+---------------------+---------------------+
+|  1 | mrcat@catmail.com | cAt_pas5 | 2016-04-21 13:34:23 | 2016-04-25 19:54:03 |
++----+-------------------+----------+---------------------+---------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM AddressBook;
++----+-----------+-------+---------------------+------------+
+| id | accountId | name  | createdOn           | modifiedOn |
++----+-----------+-------+---------------------+------------+
+|  1 |         0 | Catie | 0000-00-00 00:00:00 | NULL       |
++----+-----------+-------+---------------------+------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM Entry;
++----+---------------+-----------+----------+---------------------+-------+---------+-----------------------+----------------+------------------+-----------------+-----------------+
+| id | addressBookId | firstName | lastName | birthday            | type  | subtype | contentLineOne        | contentLineTwo | contentLineThree | contentLineFour | contentLineFive |
++----+---------------+-----------+----------+---------------------+-------+---------+-----------------------+----------------+------------------+-----------------+-----------------+
+|  1 |             0 | Catie     | TheCat   | 1986-09-16 00:00:00 | home  | phone   | 555-555-CATS          | NULL           | NULL             | NULL            | NULL            |
+|  2 |             0 | Apo       | TheCat   | 2010-08-07 00:00:00 | other | email   | apothecat@catmail.cat | NULL           | NULL             | NULL            | NULL            |
+|  3 |             0 | Pixie     | S.       | 2006-05-21 00:00:00 | work  | email   | pixies@catworks.co    | NULL           | NULL             | NULL            | NULL            |
++----+---------------+-----------+----------+---------------------+-------+---------+-----------------------+----------------+------------------+-----------------+-----------------+
+3 rows in set (0.00 sec)
