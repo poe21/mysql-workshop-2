@@ -1,0 +1,5 @@
+Exercise 5
+* Delete all data from decodemtl_addressbook.Entry without using a DELETE statement
+
+mysql> TRUNCATE TABLE Entry;
+Query OK, 0 rows affected (0.03 sec)
