@@ -1,0 +1,5 @@
+Exercise 6
+* Delete decodemtl_addressbook.Account and all associated date
+
+mysql> DELETE FROM Account;
+Query OK, 1 row affected (0.01 sec)
